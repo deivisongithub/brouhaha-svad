@@ -38,7 +38,8 @@ class RegressiveActivityDetectionTask(SegmentationTaskMixin, Task):
             max_error_c50: int = MAX_ERROR_C50,
             lambda_vad: float = 1,
             lambda_c50: float = 1,
-            lambda_snr: float = 1
+            lambda_snr: float = 1,
+            logging_prefix: Text = 'logging_prefix'
     ):
 
         super().__init__(
@@ -63,6 +64,7 @@ class RegressiveActivityDetectionTask(SegmentationTaskMixin, Task):
         self.lambda_vad = lambda_vad
         self.lambda_snr = lambda_snr
         self.lambda_c50 = lambda_c50
+        self.logging_prefix = 'logging_prefix'
 
         self.specifications = Specifications(
             problem=Problem.MULTI_LABEL_CLASSIFICATION,

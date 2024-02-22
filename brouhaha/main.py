@@ -154,9 +154,11 @@ class TrainCommand(BaseCommand):
                           'max_epochs': args.epoch}
         if args.resume:
             ckpt_path = checkpoints_path / "last.ckpt"
+            print('achou o checkpoint')
         else:
             ckpt_path = None
 
+        print('treino')
         trainer = Trainer(**trainer_kwargs)
         trainer.fit(model, ckpt_path=ckpt_path)
 
